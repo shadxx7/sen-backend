@@ -24,8 +24,6 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
-    "pretest": "eslint --ignore-path .gitignore .",
-    "lint": "eslint index.js"
+    "dev": "nodemon index.js"
   }
 }
