@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "TBD",
   "main": "index.js",
+  "license": "GPL-3.0",
+  "repository": "https://github.com/shadxx7/sen-backend",
   "author": "Mohamed Shadab <shadabdragon@gmail.com>",
   "dependencies": {
     "cors": "^2.8.5",
