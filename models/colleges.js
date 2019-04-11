@@ -23,7 +23,11 @@ const collegeSchema = new mongoose.Schema(
       {
         id: String
       }
-    ]
+    ],
+    administrator: {
+      type: String,
+      required: true
+    }
   },
   {
     collection: "colleges"

@@ -7,7 +7,16 @@ const facultySchema = new mongoose.Schema(
       required: true
     },
     college: {
-      type: String,
+      type: {
+        name: {
+          type: String,
+          required: true
+        },
+        id: {
+          type: String,
+          required: true
+        }
+      },
       required: true
     },
     department: String,

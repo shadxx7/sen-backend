@@ -4,8 +4,7 @@ const adminSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
-      default: `User${this._id}`
+      required: true
     },
     username: {
       type: String,
@@ -19,9 +18,10 @@ const adminSchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: ["system", "college"]
-    }
+    },
+    college: String
   },
   { collection: "administators" }
 );
 
-module.exports = mongoose.model("Administrators", adminSchema);
+module.exports = mongoose.model("Admin", adminSchema);
