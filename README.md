@@ -6,12 +6,12 @@
 
 - You will need to set the database host url in a new .env file to the url you are hosting the database server on.
 
-- An example Database file will look like this:
+- An example .env file will look like this:
 
-    ```bash
-    PORT=5000
-    DB_ADDRESS="<Your DB Address here>"
-    ```
+  ```bash
+  PORT=5000
+  DB_ADDRESS="<Your DB Address here>"
+  ```
 
 - Run the following commands in the directory of sen-backend:
 

@@ -10,41 +10,32 @@ const facultySchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    department: {
-      type: String,
-      required: false
-    },
+    department: String,
     areaOfInterests: {
       type: [{ name: { type: String, required: true } }],
       required: true
     },
-    publications: {
-      type: [
-        {
-          name: { type: String, required: true },
-          description: { type: String, required: true },
-          publishDate: { type: Date, required: false },
-          link: { type: String, required: false }
-        }
-      ],
-      required: false
-    },
+    publications: [
+      {
+        name: { type: String, required: true },
+        description: { type: String, required: true },
+        publishDate: Date,
+        link: String
+      }
+    ],
     coursesTaught: [
       {
         name: { type: String, required: true },
-        code: { type: String, required: false }
+        code: String
       }
     ],
     contactDetails: {
-      type: {
-        emailId: { type: String, required: false },
-        phoneNo: {
-          type: { countryCode: { type: Number, required: true } },
-          required: false
-        },
-        socialMedia: [{ name: String, link: String }]
+      emailId: String,
+      phoneNo: {
+        countryCode: { type: Number, required: true },
+        Number
       },
-      required: false
+      socialMedia: [{ name: String, link: String }]
     }
   },
   { collection: "faculty" }
