@@ -33,5 +33,5 @@ const collegeSchema = new mongoose.Schema(
     collection: "colleges"
   }
 );
-
+collegeSchema.index({'$**': 'text'});
 module.exports = mongoose.model("College", collegeSchema);
