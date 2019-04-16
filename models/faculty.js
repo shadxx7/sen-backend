@@ -48,6 +48,8 @@ const facultySchema = new mongoose.Schema(
     }
   },
   { collection: "faculty" }
+
 );
+facultySchema.index({'$**': 'text'});
 
 module.exports = mongoose.model("Faculty", facultySchema);
