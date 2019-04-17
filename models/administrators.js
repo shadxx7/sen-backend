@@ -19,9 +19,12 @@ const adminSchema = new mongoose.Schema(
       required: true,
       enum: ["system", "college"]
     },
-    college: String
+    college: {
+      name: String,
+      id: String
+    }
   },
-  { collection: "administators" }
+  { collection: "administrators" }
 );
 
 module.exports = mongoose.model("Admin", adminSchema);

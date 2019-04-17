@@ -21,6 +21,7 @@ const collegeSchema = new mongoose.Schema(
     },
     faculty: [
       {
+        name: String,
         id: String
       }
     ],
@@ -33,5 +34,5 @@ const collegeSchema = new mongoose.Schema(
     collection: "colleges"
   }
 );
-collegeSchema.index({'$**': 'text'});
+collegeSchema.index({ "$**": "text" });
 module.exports = mongoose.model("College", collegeSchema);

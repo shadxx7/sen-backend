@@ -29,6 +29,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev-win": "SET NODE_ENV=dev&&nodemon index.js",
+    "dev-unix": "NODE_ENV=dev nodemon index.js"
   }
 }

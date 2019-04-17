@@ -41,15 +41,14 @@ const facultySchema = new mongoose.Schema(
     contactDetails: {
       emailId: String,
       phoneNo: {
-        countryCode: { type: Number, required: true },
-        Number
+        countryCode: Number,
+        Number: Number
       },
       socialMedia: [{ name: String, link: String }]
     }
   },
   { collection: "faculty" }
-
 );
-facultySchema.index({'$**': 'text'});
+facultySchema.index({ "$**": "text" });
 
 module.exports = mongoose.model("Faculty", facultySchema);

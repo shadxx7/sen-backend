@@ -15,7 +15,16 @@
 
 - Run the following commands in the directory of sen-backend:
 
-  ```bash
-  yarn
-  yarn dev
-  ```
+  - For Windows
+
+    ```bash
+    yarn
+    yarn dev-win
+    ```
+
+  - For Unix based systems
+
+    ```bash
+    yarn
+    yarn dev-unix
+    ```
