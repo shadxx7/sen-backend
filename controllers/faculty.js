@@ -1,5 +1,5 @@
-const Faculty = require("../models/faculty");
-const College = require("../models/colleges");
+const Faculty = require('../models/faculty');
+const College = require('../models/colleges');
 
 exports.getFaculty = (req, res) => {
   const _id = req.params.facultyId;
@@ -12,7 +12,7 @@ exports.getFaculty = (req, res) => {
       res.send(fac);
     })
     .catch(err => {
-      res.status(500).send("Something went wrong");
+      res.status(500).send('Something went wrong');
     });
 };
 
@@ -23,7 +23,7 @@ exports.searchFaculty = (req, res) => {
       res.send(fac);
     })
     .catch(err => {
-      res.status(500).send("Search failed");
+      res.status(500).send('Search failed');
     });
 };
 
@@ -40,42 +40,55 @@ exports.addFaculty = (req, res) => {
         { $push: { faculty: addthis } }
       )
         .then(done => {
-          res.status(200).send("Successfully added faculty.");
+          res.status(200).send('Successfully added faculty.');
         })
         .catch(err => {
           console.log(err);
-          res.status(500).send("Something went wrong.");
+          res.status(500).send('Something went wrong.');
         });
     })
     .catch(err => {
       console.log(err);
-      res.status(500).send("Something went wrong.");
+      res.status(500).send('Something went wrong.');
     });
 };
 
 exports.updateFaculty = (req, res) => {
-  Faculty.findOneAndUpdate({ _id: req.body._id }, req.body)
+  Faculty.findByIdAndUpdate(req.body.id, req.body.faculty)
     .then(faculty => {
-      res.status(200).send("Saved successfully");
+      College.update(
+        { _id: faculty.college.id, 'faculty.id': faculty._id },
+        {
+          $set: { 'faculty.$.name': faculty.name }
+        }
+      ).then(() => {
+        res.status(200).send('Succesfully updated faculty.');
+      });
     })
     .catch(err => {
-      res.status(200).send("Something went wrong");
+      console.log(err);
+      res.status(500).send('Something went wrong.');
     });
 };
 
 exports.deleteFaculty = (req, res) => {
   const id = req.params.facultyId;
-  Faculty.findByIdAndDelete(id)
+  Faculty.findOneAndDelete({ _id: id })
+    .exec()
     .then(faculty => {
       College.findByIdAndUpdate(faculty.college.id, {
         $pull: { faculty: { id: id } }
       })
         .then(() => {
-          res.status(200).send("Faculty deleted");
+          res.status(200).send('Successfully deleted faculty.');
         })
-        .catch(err => res.status(500).send("Something went wrong."));
+        .catch(err => {
+          console.log(err);
+          res.status(500).send('Something went wrong.');
+        });
     })
-    .catch(e => {
-      res.status(500).send("Something went wrong");
+    .catch(err => {
+      console.log(err);
+      res.status(500).send('Something went wrong.');
     });
 };
