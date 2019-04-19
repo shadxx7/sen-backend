@@ -28,7 +28,7 @@ const dbUrl =
 
 // Connect to database
 mongoose.connect(dbUrl, { useNewUrlParser: true });
-mongoose.set('debug', false);
+mongoose.set('debug', true);
 const conn = mongoose.connection;
 conn.on('error', console.error.bind(console, 'MongoDB Error: '));
 conn.on('connected', () => {
