@@ -1,1 +1,2 @@
-jest.setTimeout(30000);
+/* eslint-env jest */
+jest.setTimeout(30000)
