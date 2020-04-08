@@ -1,5 +1,9 @@
 # SEN Backend
 
+Backend for an Open Faculty Directory Web App. Done as a project for a Software Engineering Course.
+
+Frontend is available here: https://github.com/statebait/sen-frontend
+
 ## For Development
 
 - You need Node & Yarn to run this application. Download them here - [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com).
