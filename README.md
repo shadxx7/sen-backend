@@ -40,3 +40,8 @@ Frontend is available here: https://github.com/statebait/sen-frontend
   yarn
   yarn test
   ```
+
+# License
+
+This project is licensed under the GPL-3.0 License - Copyright (c) 2019 Mohamed Shadab
+
